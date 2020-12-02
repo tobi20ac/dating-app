@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>My Profile</h2>
+
+    <div class="links">
+        <a href="./mainFeed.html">Feed</a>
+        <a href="./profile.html">Profile</a>
+        <a href="./matches.html">Matches</a>
+        <a href="logout">Logout</a>
+    </div>
+
+    <div class="userInfo">
+        <p id="email">your email</p>
+
+        <p id="password">your password</p>
+
+        <p id="name">your name</p>
+
+        <p id="birthday">your birthday</p>
+
+        <p id="city">your city</p>
+
+        <p id="gender">your gender</p>
+    </div>
+
+    <div class="updateInfo">
+
+        <h3>Update your info</h3>
+
+        <form action="/" id="form" method="POST" class="updateInfo-form">
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email">
+            </div>
+            <br>
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password"> <br><br>
+                <div id="password-requirements">
+                    <b>Password requirements:</b>
+                    <div id="password-length">
+                        Min 8 characters:
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name">
+            </div>
+            <br>
+            <div>
+                <label for="birthday">Birthday:</label>
+                <input type="date" name="birthday" id="birthday">
+            </div>
+            <br>
+            <div>
+                <label for="gender">Gender:</label>
+                <select name="gender" id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <br>
+            <div class="buttons">
+                <button type="submit">Update</button>
+            </div>
+        </form>
+
+
+    </div>
+
+</body>
+
+</html>
