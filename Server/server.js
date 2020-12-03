@@ -5,9 +5,13 @@ var hardCodedUsers = require("../Model/localStorageUsers")
 
 app.listen(3000);
 
-app.use(express.static(__dirname + "/public"));
+app.set("view engine", "ejs");
+
 
 app.get("/", (re, res) => {
-    res.sendFile("../View/signUp.html");
+    res.render("signIn");
 })
 
+app.get("/signUp", (re, res) => {
+    res.render("signUp");
+})
