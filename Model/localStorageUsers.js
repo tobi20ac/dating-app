@@ -8,4 +8,4 @@ var hardCodedUsers = [user1, user2, user3];
 
 //window.localStorage.setItem("users", hardCodedUsers);
 
-module.exports.hardCodedUsers = hardCodedUsers;
+module.exports = hardCodedUsers;

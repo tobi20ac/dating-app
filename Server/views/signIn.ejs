@@ -3,29 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment 4</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
+    <title>Dating</title>
+    
+    <script defer src="/dating-app/Controller/signInController.js"></script>
 </head>
 
 <body>
     <h1>Log in</h1>
-
-    <div class="links">
-        <a href="./mainFeed.html">Feed</a>
-        <a href="./profile.html">Profile</a>
-        <a href="./matches.html">Matches</a>
-        <a href="logout">Logout</a>
-    </div>
-
+    
     <div id="error" class="errors"></div>
     <br>
 
 <!--Følgende er den formular, som brugeren kan skrive sit input i. Der er valgt typer til felterne, som passer til de forskellige input. -->
-    <form action="/" id="form" method="POST" class="login-form">
+    <form action="/signIn" id="form" method="POST" class="login-form">
         <div>
-            <label for="email">Email:</label>
-            <input type="email" name="email" id="email">
+            <label for="username">Email:</label>
+            <input type="text" name="username" id="username">
         </div>
         <br>
         <div>
@@ -34,7 +27,7 @@
         </div>
 
         <div class="buttons">
-            <button type="submit">Log in</button>
+            <button type="submit" id="login-button">Log in</button>
         </div>
 </body>
 
