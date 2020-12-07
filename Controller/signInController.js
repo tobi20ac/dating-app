@@ -12,7 +12,7 @@ loginButton.addEventListener("click", function(){
     xhttp.send();
     
 }) */
-
+/* 
 var h1 = document.getElementsByTagName("h1");
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -23,24 +23,26 @@ localStorage.setItem("users", hardCodedUsers);
 
 const loginButton = document.getElementById("login-button");
 
-const emailInput = document.getElementById("email");
+const usernameInput = document.getElementById("username");
 
 const passwordInput = document.getElementById("password;")
 
+var activeUser =  localStorage.setItem("activeUser", "");
+
 loginButton.addEventListener("click", () => {
     var xhr = new XMLHttpRequest();
-    console.log(emailInput);
     xhr.responseType = "json";
-    console.log(data);
+    var activeUser;
+
 
     xhr.addEventListener("readystatechange", function(){
         if(xhr.readyState === 4){
-            const respo = xhr.response;
-            console.log(respo);
-            h1.innerHTML = respo;
+            activeUser = body.username;
+            localStorage.setItem("activeUser", activeUser)
+            console.log(activeUser);
         }
     })
     xhr.open("POST", "http://localhost:3000/signIn", true);
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.send(JSON.stringify({body}));
-})
+    xhr.send(JSON.stringify({body}, activeUser));
+}) */

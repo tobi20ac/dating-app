@@ -4,29 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dating</title>
+    <script src="/dating-app/Controller/feedController.js"></script>
 </head>
 <body>
     <h2>Feed</h2>
 
-    <div class="links">
-        <a href="./mainFeed.html">Feed</a>
-        <a href="./profile.html">Profile</a>
-        <a href="./matches.html">Matches</a>
-        <a href="logout">Logout</a>
+
+        <form action="/feed" method="GET">
+            <button id="feed">Feed</button>
+        </form>
+
+        <form action="/profile" method="GET">
+            <button id="profile">Profile</button>
+        </form>
+
+        <form action="/mathces" method="GET">
+            <button id="matches">Matches</button>
+        </form>
+    
+        <form action="/LogOut" method="GET">
+            <button id="logOut">Log Out</button>
+        </form> 
+
+    <div class="message">
+        <p id="message"> <%= message %></p>
     </div>
 
     <div class="suggestedUser">
 
-        <p id="name">Suggedsted User's name</p>
-        <p id="age">Suggedsted user's age</p>
-        <p id="city">Suggedsted user's city</p>
-        <p id="gender">Suggedsted user's gender</p>
+        <p id="name"> <%= name %> </p>
+        <p id="age"><%= age %></p>
+        <p id="city"><%= city %></p>
     </div>
 
     <div class="buttons">
-
-        <button>Like</button>
-        <button>dislike</button>
+        <button id="like-button">Like</button>
+        <button id="dislike-button">dislike</button>
     </div>
 
 </body>
