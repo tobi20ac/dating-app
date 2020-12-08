@@ -10,12 +10,21 @@
 <body>
     <h2>My Profile</h2>
 
-    <div class="links">
-        <a href="./mainFeed.html">Feed</a>
-        <a href="./profile.html">Profile</a>
-        <a href="./matches.html">Matches</a>
-        <a href="logout">Logout</a>
-    </div>
+    <form action="/feed" method="GET">
+        <button id="feed">Feed</button>
+    </form>
+
+    <form action="/profile" method="GET">
+        <button id="profile">Profile</button>
+    </form>
+
+    <form action="/mathces" method="GET">
+        <button id="matches">Matches</button>
+    </form>
+
+    <form action="/LogOut" method="GET">
+        <button id="logOut">Log Out</button>
+    </form> 
 
     <div class="userInfo">
         <p id="username">Current username: <%=username%></p>
@@ -35,7 +44,7 @@
 
         <form action="/" id="form" method="POST" class="updateInfo-form">
             <div>
-                <label for="username">Email:</label>
+                <label for="username">Username:</label>
                 <input type="username" name="username" id="username">
             </div>
             <br>

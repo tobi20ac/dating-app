@@ -11,12 +11,32 @@ class User{
     }
 
     likeUser(userID){
-        likedUsers.push(userID);
+        this.likedUsers.push(userID);
     }
 
     removeLike(userID){
         var index = this.likedUsers.indexOf(userID);
         likedUsers.splice(index,1)
+    }
+
+    updateUsername(newUsername){
+        this.username = newUsername;
+    }
+
+    updatePassword(newPassword){
+        this.password = newPassword;
+    }
+
+    updateName(newName){
+        this.name = newName;
+    }
+
+    updateBirthday(newBirthday){
+        this.birthday = newBirthday;
+    }
+
+    updateCity(newCity){
+        this.city = newCity;
     }
 }
 
