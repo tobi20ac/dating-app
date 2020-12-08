@@ -18,17 +18,15 @@
     </div>
 
     <div class="userInfo">
-        <p id="email">your email</p>
+        <p id="username">Current username: <%=username%></p>
 
-        <p id="password">your password</p>
+        <p id="password">Current password: <%=password%></p>
 
-        <p id="name">your name</p>
+        <p id="name">Current name: <%=name%><p>
 
-        <p id="birthday">your birthday</p>
+        <p id="birthday">Current birthday: <%=birthday%></p>
 
-        <p id="city">your city</p>
-
-        <p id="gender">your gender</p>
+        <p id="city">Current city: <%=city%></p>
     </div>
 
     <div class="updateInfo">
@@ -37,8 +35,8 @@
 
         <form action="/" id="form" method="POST" class="updateInfo-form">
             <div>
-                <label for="email">Email:</label>
-                <input type="email" name="email" id="email">
+                <label for="username">Email:</label>
+                <input type="username" name="username" id="username">
             </div>
             <br>
             <div>
@@ -62,13 +60,10 @@
                 <input type="date" name="birthday" id="birthday">
             </div>
             <br>
-            <div>
-                <label for="gender">Gender:</label>
-                <select name="gender" id="gender">
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                </select>
-            </div>
+                <div>
+                    <label for="city">city</label>
+                    <input type="text" name="city" id="city">
+                </div>
             <br>
             <div class="buttons">
                 <button type="submit">Update</button>

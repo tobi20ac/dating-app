@@ -88,5 +88,21 @@ app.post("/signUp", (req, res) => {
     res.redirect("/")
 })
 
+app.get("/profile", (req, res) => {
+
+    if(activeProfile === ""){
+        res.redirect("/")
+    }
+
+    else{
+        for(let i = 0; i<hardCodedUsers.length; i++){
+            if(hardCodedUsers[i].username === activeProfile){
+                var profileUser = hardCodedUsers[i];
+            }
+        }
+        res.render("profile", {username: profileUser.username, password: profileUser.password, name: profileUser.name, birthday: profileUser.birthday, city: profileUser.city})
+    }
+})
+
 module.exports.hardCodedUsers = hardCodedUsers;
 
