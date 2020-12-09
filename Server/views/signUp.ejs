@@ -10,8 +10,7 @@
 
 <body>
     <h1>Sign up</h1>
-    <div id="error" class="errors"></div>
-    <br>
+        <p><%= ed %></p>
 
 <!--Følgende er den formular, som brugeren kan skrive sit input i. Der er valgt typer til felterne, som passer til de forskellige input. -->
     <form action="/signUp" id="form" method="POST" class="signUp-form">
@@ -49,6 +48,13 @@
         <div class="button">
             <button type="submit" id="signUp-button">Sign up</button>
         </div>
+        
+    </form>
+
+    <form action="/" method="GET">
+    
+        <button type="submit" id="signIn">Go to sign in page</button>
+    
     </form>
 
 </body>

@@ -8,14 +8,26 @@
 <body>
     <h3>Your matches</h3>
 
-    <div class="links">
-        <a href="./mainFeed.html">Feed</a>
-        <a href="./profile.html">Profile</a>
-        <a href="./matches.html">Matches</a>
-        <a href="logout">Logout</a>
-    </div>
+    <form action="/feed" method="GET">
+        <button id="feed">Feed</button>
+    </form>
 
-    <div id="table"></div>
+    <form action="/profile" method="GET">
+        <button id="profile">Profile</button>
+    </form>
+
+    <form action="/matches" method="GET">
+        <button id="matches">Matches</button>
+    </form>
+
+    <form action="/LogOut" method="GET">
+        <button id="logOut">Log Out</button>
+    </form> 
+
+
+    <p id="name"> <%= name %> </p>
+        <p id="age"><%= age %></p>
+        <p id="city"><%= city %></p>
 
 </body>
 </html>

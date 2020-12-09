@@ -10,6 +10,18 @@ class User{
         this.likedUsers = [];
     }
 
+    getName(){
+        return this.name;
+    }
+
+    getCity(){
+        return this.city;
+    }
+
+    getBirthday(){
+        return this.birthday;
+    }
+
     likeUser(userID){
         this.likedUsers.push(userID);
     }

@@ -18,6 +18,8 @@ const { indexOf } = require("../Model/localStorageUsers");
 
 app.set("view engine", "ejs");
 
+var errorMsg = "Invalid login information"
+
 
 app.get("/", (re, res) => {
 
@@ -29,7 +31,10 @@ app.get("/", (re, res) => {
 })
 
 app.get("/signUp", (re, res) => {
-    res.render("signUp");
+    if(activeProfile === ""){
+    res.render("signUp",{ed: ""});
+    }
+    else(res.redirect("/"))
 })
 
 var i = 0;
@@ -51,8 +56,9 @@ app.get("/feed", (re, res) => {
         }
     }
     if(profUser.likedUsers.length >= possibleMatches.length && i === possibleMatches.length){
-        res.render("mainFeed", {message: "You have now liked all users", name: possibleMatches[0].name, age: possibleMatches[0].birthday, city: possibleMatches[0].city})
-    }
+         res.render("mainFeed", {message: "You have now liked all users", name: possibleMatches[0].name, age: possibleMatches[0].birthday, city: possibleMatches[0].city})
+    
+}
 
 }
 else{res.redirect("/")}
@@ -95,9 +101,38 @@ app.get("/LogOut", (req, res) => {
     res.redirect("/")
 })
 
+
+function checkInput(userN, passW, namE, birthD, citY){
+    var signInErrors = [];
+        if(userN === "" || userN.length<5){
+            signInErrors.push("Error in username (username must be at least 5 characters")
+        }
+
+        if(passW === "" || passW.length<5){
+            signInErrors.push("Error in passwrod (password must be at least 5 characters")
+        }
+
+        if(namE === "" || namE.length<2){
+            signInErrors.push("Error in name (name must be at least 2 characters")
+        }
+
+        let today = new Date();
+        let birth = new Date(birthD)
+        if(birthD === "" || (today.getFullYear() - birth.getFullYear()) < 18 || (today.getFullYear() - birth.getFullYear() > 100)){
+            signInErrors.push("Invalid date")
+        }
+
+        if(citY === "" || citY.length < 2){
+            signInErrors.push("City must be at least 2 characters")
+        }
+        return signInErrors;
+    }
+
+
 app.post("/signUp", (req, res) => {
 
-    if(activeProfile != ""){
+
+    if(activeProfile === ""){
 
     let usernameInput = req.body.username;
     let passwordInput = req.body.password;
@@ -106,12 +141,21 @@ app.post("/signUp", (req, res) => {
     let cityInput = req.body.city;
     console.log("API triggered")
 
+
+    var result = checkInput(usernameInput, passwordInput, nameInput, birthdayInput, cityInput);
+    if(result === []){
     hardCodedUsers.push(new User(hardCodedUsers.length, usernameInput, passwordInput, nameInput, birthdayInput, cityInput));
     console.log(hardCodedUsers);
     res.redirect("/")
     }
-    else{
-        res.redirect("/feed")
+
+    if(result != []){
+        res.render("signUp",{ed: result.join(", ")})
+        }
+    
+}
+    if(activeProfile != ""){
+        res.redirect("/")
     }
 })
 
@@ -132,6 +176,7 @@ app.get("/profile", (req, res) => {
 })
 
 app.get("/like", (req,res) => {
+    
     if(i<possibleMatches.length){
     var likedUser = possibleMatches[i].username;
     for(let i = 0; i<hardCodedUsers.length; i++){
@@ -157,9 +202,33 @@ app.get("/like", (req,res) => {
 
     i++;
     
-
     res.redirect("/feed")
 }
+if(i === possibleMatches.length  ){
+    res.redirect("/feed")
+}
+
+})
+
+
+app.get("/matches", (req, res) => {
+
+    let profileUser;
+    for(let i = 0; i<hardCodedUsers.length; i++){
+        if(hardCodedUsers[i].username === activeProfile){
+            profileUser = hardCodedUsers[i];
+        }
+    }
+    console.log(profileUser)
+
+    //Viser kun det første match en person har
+    for(let i=0; i<possibleMatches.length; i++){
+        if(possibleMatches[i].username == profileUser.likedUsers[0]){
+            res.render("matches", {name: possibleMatches[i].getName(), age: possibleMatches[i].getBirthday(), city: possibleMatches[i].getCity()})
+        }
+    }
+
+
 })
 
 module.exports.hardCodedUsers = hardCodedUsers;
