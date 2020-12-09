@@ -1,4 +1,4 @@
-const { url } = require("inspector");
+/* const { url } = require("inspector");
 
 const signUpBtn = document.getElementById("signUp-button");
 
@@ -16,4 +16,4 @@ signUpBtn.addEventListener("click", () => {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.send(JSON.stringify({body}));
 
-})
+}) */

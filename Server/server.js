@@ -232,4 +232,5 @@ app.get("/matches", (req, res) => {
 })
 
 module.exports.hardCodedUsers = hardCodedUsers;
+module.exports = checkInput;
 
