@@ -38,6 +38,7 @@ app.get("/signUp", (re, res) => {
 })
 
 var i = 0;
+
 app.get("/feed", (re, res) => {
 
     if(activeProfile != ""){
@@ -56,7 +57,7 @@ app.get("/feed", (re, res) => {
         }
     }
     if(profUser.likedUsers.length >= possibleMatches.length && i === possibleMatches.length){
-         res.render("mainFeed", {message: "You have now liked all users", name: possibleMatches[0].name, age: possibleMatches[0].birthday, city: possibleMatches[0].city})
+         res.render("mainFeed", {message: "You have now seen all users", name: possibleMatches[0].name, age: possibleMatches[0].birthday, city: possibleMatches[0].city})
     
 }
 
@@ -208,6 +209,11 @@ if(i === possibleMatches.length  ){
     res.redirect("/feed")
 }
 
+})
+
+app.get("/dislike", (req, res) => {
+    i++;
+    res.redirect("/")
 })
 
 

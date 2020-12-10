@@ -22,33 +22,13 @@ class User{
         return this.birthday;
     }
 
-    likeUser(userID){
-        this.likedUsers.push(userID);
+    likeUser(likeUsername){
+        this.likedUsers.push(likeUsername);
     }
 
-    removeLike(userID){
-        var index = this.likedUsers.indexOf(userID);
+    removeLike(likedUsername){
+        var index = this.likedUsers.indexOf(likedUsername);
         likedUsers.splice(index,1)
-    }
-
-    updateUsername(newUsername){
-        this.username = newUsername;
-    }
-
-    updatePassword(newPassword){
-        this.password = newPassword;
-    }
-
-    updateName(newName){
-        this.name = newName;
-    }
-
-    updateBirthday(newBirthday){
-        this.birthday = newBirthday;
-    }
-
-    updateCity(newCity){
-        this.city = newCity;
     }
 }
 
