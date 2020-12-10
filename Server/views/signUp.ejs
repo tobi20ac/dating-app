@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dating</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="/dating-app/Controller/signUpController.js"></script>
 </head>
 
 <body>
     <h1>Sign up</h1>
-        <p><%= ed %></p>
+    
+    <!--Error messages-->
+        <p><%= errors %></p>
 
-<!--Følgende er den formular, som brugeren kan skrive sit input i. Der er valgt typer til felterne, som passer til de forskellige input. -->
+<!--Sign up form -->
     <form action="/signUp" id="form" method="POST" class="signUp-form">
         <div>
             <label for="username">Username:</label>

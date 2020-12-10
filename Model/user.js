@@ -1,5 +1,8 @@
+//User class that represents a user of the program. Has a constructor and a couple of methods.
+
 class User{
 
+    //constructor
     constructor(userID, username, password, name, birthday, city){
         this.userID = userID;
         this.username = username;
@@ -10,25 +13,22 @@ class User{
         this.likedUsers = [];
     }
 
+    //Method to get name
     getName(){
         return this.name;
     }
-
+    //Method to get city
     getCity(){
         return this.city;
     }
-
+    //Method to get birthday
     getBirthday(){
         return this.birthday;
     }
 
+    //Method to like a user and push to the array of liked users.
     likeUser(likeUsername){
         this.likedUsers.push(likeUsername);
-    }
-
-    removeLike(likedUsername){
-        var index = this.likedUsers.indexOf(likedUsername);
-        likedUsers.splice(index,1)
     }
 }
 
