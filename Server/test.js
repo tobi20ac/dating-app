@@ -1,7 +1,10 @@
+//require chai
 const expect = require("chai").expect;
 
+//require the checkInput function
 var checkInput = require("./server");
 
+//Unit test of the checkInput function
 describe("checkInput()", function(){
     it("should return an empty array", function(){
         //Arrange
